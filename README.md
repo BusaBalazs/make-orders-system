@@ -1,1 +1,1 @@
-Orders system develodd by Balazs Busa - All rigth reserved 2022
+Orders system developed by Balazs Busa - All rigth reserved 2022
