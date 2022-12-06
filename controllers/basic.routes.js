@@ -7,6 +7,7 @@ const getLandingpage = (req, res, next) => {
 
 const getOrders = (req, res, next) => {
   numOfTable = req.params.id;
+ console.log(res.locals.orderId);
   res.render("orders", { numOfTable: numOfTable });
 };
 
@@ -16,7 +17,7 @@ const orders = async (req, res, next) => {
 
   try {
     await newOredr.save();
-    res.redirect("/orders/" + numOfTable);
+    res.redirect("/orders");
   } catch (error) {
     next(error);
   }

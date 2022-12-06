@@ -7,11 +7,15 @@ const db = require("./data/database");
 const errorHandle = require("./middleware/errorHandle");
 const basicRoutes = require("./routes/routes");
 
+const orderCredential = require('./middleware/order.credential');
+
 //-------------------------------------------------
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 //-------------------------------------------------
 app.use(express.urlencoded({ extended: false }));
+
+app.use(orderCredential);
 app.use(basicRoutes);
 
 app.use(errorHandle);
