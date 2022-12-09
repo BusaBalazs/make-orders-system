@@ -8,15 +8,16 @@ const errorHandle = require("./middleware/errorHandle");
 const url = require('./middleware/checkUrl');
 const basicRoutes = require("./routes/routes");
 
-const orderCredential = require('./middleware/order.credential');
+
 
 //-------------------------------------------------
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 //-------------------------------------------------
+app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
 
-app.use(orderCredential);
+
 app.use(url);
 app.use(basicRoutes);
 

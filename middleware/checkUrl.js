@@ -1,6 +1,6 @@
 const checkUrl = (req, res, next) => {
   if (req.url === "/orders/0000") {
-    res.redirect('/orders')
+    res.redirect('/orders');
   }
   
   next();
