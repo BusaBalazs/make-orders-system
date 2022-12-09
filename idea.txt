@@ -1,2 +1,0 @@
-The /orders rout request generet unique id with a middleware, store that id to res.local.authId
-In the form the action attribute use taht id as a uniquie routes e.g orders/locals.authid
