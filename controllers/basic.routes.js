@@ -7,26 +7,25 @@ const getLandingpage = (req, res, next) => {
 
 const getOrders = (req, res, next) => {
   numOfTable = req.params.id;
- console.log(res.locals.orderId);
+ 
   res.render("orders", { numOfTable: numOfTable });
 };
 
 const orders = async (req, res, next) => {
   numOfTable = req.params.id;
   const newOredr = new Order(req.body.orders, numOfTable);
-
-  try {
+  console.log(req.body.orderId)
+  console.log(req.body.orders)
+ 
     await newOredr.save();
-    res.redirect("/orders");
-  } catch (error) {
-    next(error);
-  }
-};
+    res.json({
+      message:"ok!"
+    });
+};  
 
 const getCheckOrders = async (req, res, next) => {
   try {
     const orders = await Order.fetchOrders();
-    console.log(orders);
     res.render("check", {orders: orders});
   } catch (error) {
     next(error);
